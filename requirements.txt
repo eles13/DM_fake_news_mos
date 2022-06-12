@@ -4,3 +4,4 @@ scikit-learn
 natasha
 torch
 transformers
+dash
