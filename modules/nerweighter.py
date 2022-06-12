@@ -91,8 +91,8 @@ def get_nerwindow_comparison(fake, potorigs, idf_dict=None, window=5, koefspans=
             lsum /= len(nerdict[i])
             lsums[i] += lsum
     for p in lsums:
-        lsums[p] = 1 - lsums[p]/(window-1)
-    maxi = max(np.array([x for x in list(lsums.values()) if x != 1]))
+        lsums[p] = 1.0 - lsums[p]/(window-1)
+    #maxi = max(np.array([x for x in list(lsums.values()) if x != 1]))
     # softmaxed = softmax(np.array([x for x in list(lsums.values()) if x != 0]))
     # shift = 0
     # for i,p in enumerate(lsums):
@@ -113,8 +113,7 @@ def get_nerwindow_comparison(fake, potorigs, idf_dict=None, window=5, koefspans=
                 lsums[p] = (lsums[p] - lower)/(1-lower)
 
         if potorigs[p-1] == fake:
-            lsums[p] = 0
-    
+            lsums[p] = 0.0
     return lsums
 
 if __name__ == '__main__':

@@ -5,6 +5,8 @@ Fake news detector based on news from mos.ru
 
 ## To run:
 
+Place model file got from https://drive.google.com/file/d/17Z6BVvSRueCT6X8nnAYiqWY1wNNxg8uh/view?usp=sharing to the folder ```./resources```
+
 ```pip install -r requirements.txt```
 
 To start web frontend:
