@@ -18,11 +18,11 @@ import numpy as np
 import time
 
 
-
-matcher = Matcher('./resources/news.csv')
-with open('./resources/mos_idf.json') as fin:
-    idf_dict = json.load(fin)
-
+if __name__ == '__main__':
+    matcher = Matcher('./resources/news.csv')
+    with open('./resources/mos_idf.json') as fin:
+        idf_dict = json.load(fin)
+    app = dash.Dash(__name__, url_base_pathname='/')
 
 
 def get_rating(header, data):
@@ -39,7 +39,7 @@ def get_rating(header, data):
 
 
 
-app = dash.Dash(__name__, url_base_pathname='/')
+
    
 def serve_layout():
     session_id = str(uuid.uuid4())
@@ -92,7 +92,7 @@ def read_value(data, header, n_clicks):
     
     
 if __name__ == '__main__':
-     app.index_string="""<!DOCTYPE html>
+    app.index_string="""<!DOCTYPE html>
 <html>
 <head>
 <title> Проверка достоверности новостей </title>
@@ -237,5 +237,5 @@ Copyright © 2022
 </div>
 </body>
      """
-     app.layout = serve_layout
-     app.run_server(debug=False, host="0.0.0.0" )
+    app.layout = serve_layout
+    app.run_server(debug=False, host="0.0.0.0" )
